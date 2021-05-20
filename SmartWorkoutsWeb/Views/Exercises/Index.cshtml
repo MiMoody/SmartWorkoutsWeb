@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SmartWorkoutsWeb.Models.Exercises>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Exercise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_Exercise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration_Exercise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Premium_Works.Name_Premium_Work)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Types_Workout.Name_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Exercise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_Exercise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration_Exercise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Premium_Works.Name_Premium_Work)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Types_Workout.Name_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Exercise }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Exercise }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Exercise })
+        </td>
+    </tr>
+}
+
+</table>

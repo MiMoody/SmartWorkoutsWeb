@@ -1,0 +1,33 @@
+﻿<!-- Modal -->
+<div class="modal fade mr-0" id="ModalRegestration" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content BackModalContent RegContent">
+            <div class="modal-header text-center" style="color:white!important">
+                <h5 class="modal-title">Регистрация</h5>
+                <button type="button" class="close" data-dismiss="modal" style="outline:none!important" aria-label="Close">
+                    <span aria-hidden="true" style="color:white!important">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-around align-items-center row text-center mt-md-4">
+                    <div class="col-md-6   ">
+                        <input id="InpName" class="form-control mb-4 InputForValidation InputReg" placeholder="Ваше имя" />
+                        <input id="InpSurname" class="form-control mb-4 InputForValidation InputReg" placeholder="Ваша фамилия" />
+                        <input id="InpMiddleName" class="form-control mb-4 InputForValidation InputReg" placeholder="Вашe отчество" />
+                        <input id="InpEmail" type="email" class="form-control mb-4 InputForValidation InputReg" placeholder="Ваш email" />
+                    </div>
+                    <div class="col-md-6">
+                        <input id="InpDate" class="form-control mb-4 InputForValidation InputReg" readonly="readonly"  placeholder="Ваша дата рождения" />
+                        <input id="InpLogin" class="form-control mb-4 InputForValidation InputReg" placeholder="Ваш логин" />
+                        <input id="InpPassword" type="password" class="form-control mb-4 InputForValidation InputReg" placeholder="Ваш пароль" />
+                        <input id="RepeatPass" type="password" class="form-control mb-4 InputForValidation InputReg" placeholder="Повторите пароль" />
+                    </div>
+                    <button class=" RegBtn mb-4" onclick="Regestration(this)">Зарегистрироваться</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

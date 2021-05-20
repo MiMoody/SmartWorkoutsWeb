@@ -1,0 +1,61 @@
+﻿
+.MainContainer {
+    background-image: url('/Content/Images/EmptyBackground.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+.ForCard {
+    width: 18rem;
+}
+.ForCard .card-text {
+    height: 75px;
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .ForCard {
+        width:14rem;
+    }
+    .ForCard .card-title {
+        font-size: 1.1rem;
+    }
+
+    .ForCard .card-text {
+        font-size: 0.9rem;
+        height: 65px;
+    }
+}
+@media (max-width: 767px) {
+    .slider .slick-arrow.slick-prev {
+        width:20px;
+        height:40px;
+        margin-left:1%;
+    }
+    .slider .slick-arrow.slick-next {
+        width: 20px;
+        height: 40px;
+        margin-right: 1%;
+    }
+  
+}
+@media (min-width: 405px) and (max-width: 548px) {
+    .CardSlider {
+        width: 18rem;
+        margin: auto !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .ForCard {
+        width: 14rem;
+    }
+   .ForCard .card-title {
+        font-size:1.1rem;
+    }
+    .ForCard .card-text {
+        font-size: 0.9rem;
+        height:65px;
+    }
+}

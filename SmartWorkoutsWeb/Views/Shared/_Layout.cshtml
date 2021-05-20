@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - приложение ASP.NET</title>
+    @Styles.Render("~/Content/Menu.css")
+    @*@Styles.Render("~/Content/Login.css")*@
+    @Styles.Render("~/Content/Bootstrap/bootstrap.min.css")
+    <link rel="stylesheet" href="~/Content/Login.css">
+    <link rel="stylesheet" href="~/Content/datepicker.css">
+    <link rel="stylesheet" href="~/Content/Registration.css">
+
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">*@
+</head>
+<body>
+    @Html.Partial("~/Views/Home/Login.cshtml")
+    @Html.Partial("~/Views/Users/Create.cshtml")
+
+
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
+    @Scripts.Render("~/Scripts/Bootstrap/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/popper.min.js")
+    @Scripts.Render("~/Scripts/test.js")
+    @* <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>*@
+    @* <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>*@
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+
+    @Scripts.Render("https://kit.fontawesome.com/b781c44b15.js")
+
+
+    <script src="~/Scripts/SendEmail.js"></script>
+    <script src="~/Scripts/TextInModal.js"></script>
+    <script src="~/Scripts/datepicker.js"></script>
+    <script src="~/Scripts/Validation.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
+        
+       

@@ -1,0 +1,58 @@
+﻿@model SmartWorkoutsWeb.Models.User_Progress
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User_Progress</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Wieght)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Wieght)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Waist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Waist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Breast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Breast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Measurement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Measurement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Progress }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

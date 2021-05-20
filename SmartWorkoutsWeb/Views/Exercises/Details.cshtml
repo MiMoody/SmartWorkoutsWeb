@@ -1,0 +1,58 @@
+﻿@model SmartWorkoutsWeb.Models.Exercises
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exercises</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_Exercise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_Exercise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description_Exercise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description_Exercise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_Exercise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_Exercise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Premium_Works.Name_Premium_Work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Premium_Works.Name_Premium_Work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Types_Workout.Name_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Types_Workout.Name_Type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Exercise }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

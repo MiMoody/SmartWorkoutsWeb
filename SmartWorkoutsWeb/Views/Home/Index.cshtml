@@ -1,0 +1,242 @@
+﻿@model IEnumerable<SmartWorkoutsWeb.Models.Posts>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SmartWorkouts</title>
+    @Styles.Render("~/Content/ForHomePage.css")
+</head>
+<body>
+
+    <div class="container-fluid MainContainer ">
+        @if (Session["Menu"] == null)
+        {
+            Session["Menu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+        }
+        @Session["Menu"]
+        <div class="container FirstContainer">
+            <div class="row text-justify">
+                <div class="col-md-7  ">
+
+                </div>
+                <div class="col-lg-5 text-center">
+                    <span class="TextBlockFirst">Тренируйся с нами<br /><span class="TextBlockSecond">в режиме  онлайн</span></span>
+                    <br />
+                    <span class="TextBlockThird text-center ">Приобретай пакеты тренировок со скидкой <br />прямо сейчас и погружайся в мир спорта с <br />лучшими упражнениями и тренерами</span>
+                    <button class="BtnMoreInfo btn">Узнать больше</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-fluid SecondContainer">
+            <p class="text-center HeadAdvantages"> Наши преимущества</p>
+            <div class="d-flex justify-content-around align-items-center row text-center  " style="height:80%">
+                <div class="col-lg-3 mb-4 ">
+                    <img src="~/Content/Images/гантель.svg" class="ImgAdvantages" alt="...">
+                    <span class="HeadTextAdventages d-block">Минимум затрат</span>
+                    <span class="d-block MainTextAdvantages">Большинство упражнений <br /> можно выполнять без наличия<br /> спортивного инвентаря</span>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <img src="~/Content/Images/сгибать-бицепс.svg" class="ImgAdvantages" alt="...">
+                    <span class="HeadTextAdventages d-block">Системы тренировок</span>
+                    <span class="d-block MainTextAdvantages">Наши тренировки<br /> систематизированы и тщательно<br /> подобраны под клиентов</span>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <img src="~/Content/Images/спортсмен.svg" class="ImgAdvantages" alt="...">
+                    <span class="HeadTextAdventages d-block">Быстрые результаты</span>
+                    <span class="d-block MainTextAdvantages">Клиенты SmartWorkouts <br />быстро добиваются качественных<br /> результатов с улыбкой</span>
+                </div>
+
+            </div>
+        </div>
+        <span id="Advantages"></span>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide SliderFirst" data-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="5000">
+                    <img src="~/Content/Images/BackgroundSlider/Slide_1.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption ForTextBlock d-md-block">
+                        <h5 class="HeadSlider">Присоединяйся <br /> к нашей команде</h5>
+                        <p class="TextSlider">Приобретай пакеты тренировок со скидкой прямо сейчас<br /> и погружайся в мир спорта с лучшими упражнениями и тренерами</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                    <img src="~/Content/Images/BackgroundSlider/Slide_2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption ForTextBlock d-md-block">
+                        <h5 class="HeadSlider">Всегда на связи</h5>
+                        <p class="TextSlider">Наши специалисты в сфере тренировок <br /> готовы быстро отреагировать и дать нужный совет</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                    <img src="~/Content/Images/BackgroundSlider/Slide_3.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption ForTextBlock  d-md-block">
+                        <h5 class="HeadSlider">Большой выбор тренировок</h5>
+                        <p class="TextSlider">Более тысячи тренировок и упражнений <br />отобрано конкретно для тебя </p>
+                    </div>
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-slide="prev">
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-slide="next">
+            </a>
+        </div>
+        <div class="container FourthContainer">
+            <p class="text-center HeadAdvantages"> О нас</p>
+            <div class="d-flex justify-content-between align-items-center row text-center  " style="height:80%">
+                <div class="col-lg-3 mb-4 text-center">
+                    <img src="~/Content/Images/Feedback/Mask Group.png" class="ImgFeedback " alt="...">
+
+                    <span class="HeadTextAdventages d-block">Артём <br /><i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i></span>
+                    <span class="d-block MainTextAdvantages">
+                        Поставил задачей привести себя в порядок, <br />в тренажерный зал не всегда есть время забежать,
+                        а дома с утра или вечером, когда есть свободное время сделать тренировку. Долго искал и нашео это приложение, хорошая система тренировок. Нареканий нет.
+                    </span>
+
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <img src="~/Content/Images/Feedback/Mask Group-1.png" class="ImgFeedback" alt="...">
+                    <span class="HeadTextAdventages d-block">Милана<br /> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i></span>
+                    <span class="d-block MainTextAdvantages">
+                        В этом приложении собраны все самые эффективные, необходимые и действенные упражнения для всего тела.
+                        В приложении есть разные программы тренировок, как для всего тела, так и для отдельных его частей, для разных групп мыщц
+                    </span>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <img src="~/Content/Images/Feedback/Mask Group-2.png" class="ImgFeedback" alt="...">
+                    <span class="HeadTextAdventages d-block">Катерина <br /> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i> <i class="fa fa-star-o ForStarsIcon" aria-hidden="true"></i></span>
+                    <span class="d-block MainTextAdvantages">
+                        Приложением пользуюсь не так долго и даже несмотря на небольшой срок, могу сказать, что результаты есть.
+                        В самом приложении собраны все нужные упражнения. Они кратко, но информативно описываются, поэтому проблем по ходу тренировок не возникает.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid FifthContainer">
+            <p class="text-center HeaderPosts"> Новости и факты</p>
+            <div id="carouselExampleDark2" class="carousel carousel-dark slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleDark2" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleDark2" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleDark2" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleDark2" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleDark2" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    @{int i = 1;}
+                    @foreach (var item in Model)
+                    {
+
+                        if (i == 1)
+                        {
+                            <div class="carousel-item carousel-item2 active" data-interval="6000">
+                                <div class="row g-0 position-relative  ">
+                                    <div class="col-xl-6 p-5 ps-md-0 order-last order-xl-first BlockContentPost">
+                                        <h5 class="mt-0 HeadPosts">@Html.DisplayFor(modelItem => item.NamePost)</h5>
+                                        <p class="d-block overflow-hidden ContentPosts">@Html.DisplayFor(modelItem => item.ContentPost)</p>
+                                        <button id="@Html.DisplayFor(modelItem => item.ID_Post)" class="MoreInfoSlider btn" data-toggle="modal" data-target="#staticBackdrop" onclick="AddText(this)">Узнать больше</button>
+                                        <a class="carousel-control-prev control-prev btn btn-outline-secondary border   " href="#carouselExampleDark2" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                                        </a>
+                                        <span class="PrevNextText">Листай и следи за нами!</span>
+                                        <a class="carousel-control-next control-next btn btn-outline-secondary border" href="#carouselExampleDark2" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 mb-md-0 p-5 text-center order-first order-xl-last BlockImgPost">
+                                        <img src="~/Content/ImagesTest/@Html.DisplayFor(modelItem => item.PicturePath)" class="img-fluid rounded ImgPost " alt="...">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="carousel-item carousel-item2 " data-interval="6000">
+                                <div class="row g-0 position-relative">
+                                    <div class="col-xl-6 p-5 ps-md-0  order-last order-xl-first BlockContentPost">
+                                        <h5 class="mt-0 HeadPosts">@Html.DisplayFor(modelItem => item.NamePost)</h5>
+                                        <p class="d-block  overflow-hidden ContentPosts">@Html.DisplayFor(modelItem => item.ContentPost)</p>
+                                        <button id="@Html.DisplayFor(modelItem => item.ID_Post)" class="MoreInfoSlider btn " data-toggle="modal" onclick="AddText(this)" data-target="#staticBackdrop">Узнать больше</button>
+                                        <a class="carousel-control-prev control-prev btn btn-outline-secondary border   " href="#carouselExampleDark2" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                                        </a>
+                                        <span class="PrevNextText">Листай и следи за нами!</span>
+                                        <a class="carousel-control-next control-next btn btn-outline-secondary border" href="#carouselExampleDark2" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 mb-md-0 p-5 text-center order-first order-xl-last BlockImgPost">
+                                        <img src="~/Content/ImagesTest/@Html.DisplayFor(modelItem => item.PicturePath)" class="img-fluid rounded ImgPost" alt="...">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        }
+                        i++;
+
+                    }
+
+                </div>
+
+            </div>
+        </div>
+        <div class="container SixthContainer">
+            <p class="text-center HeaderPosts"> Связь с нами    </p>
+            <div class="container ContainerForConnection">
+                <br />
+                <p id="SuccessSend" class="text-center HeaderData"> Введите свои данные на форме  </p>
+                <div class="d-flex justify-content-around align-items-center row text-center mt-md-5">
+                    <div class="col-lg-6 mb-4 text-center mx-auto">
+                        <input id="NameUser" class="form-control mb-4 ForInput" placeholder="Ваше имя" />
+                        <input id="EmailUser" type="email" class="form-control mb-4 ForInput" placeholder="Ваш e-mail" />
+                        <button id="SendOnEmail" class="SendBtn">Отправить</button>
+
+                    </div>
+                    <div class="col-lg-6 mb-4 text-center">
+                        <textarea id="CommentUser" class="form-control ForInput" placeholder="Ваш комментарий" style="border-radius:20px; min-height:200px;"></textarea>
+
+                    </div>
+                </div>
+                <p class="text-center HeaderData">Мы ценим каждое обращение!  </p>
+            </div>
+        </div>
+        <footer class=" text-center text-lg-start">
+            <div class="text-center p-3">
+                © 2020 Copyright: SmartWorkouts 2021
+
+            </div>
+
+        </footer>
+        <!-- Модальное окно -->
+        <div class="modal fade p-0   " id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog   ">
+                <div class="modal-content MyModal ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                    </div>
+                    <div class="modal-body" id="ContentModal">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/SendEmail.js"></script>
+    <script src="~/Scripts/TextInModal.js"></script>
+   
+</body>
+</html>
+
+

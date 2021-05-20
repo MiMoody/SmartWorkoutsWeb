@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SmartWorkoutsWeb.Models.Types_Workout>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Number_Type }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Number_Type }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Number_Type })
+        </td>
+    </tr>
+}
+
+</table>

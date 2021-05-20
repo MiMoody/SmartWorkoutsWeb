@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SmartWorkoutsWeb.Models.Premium_Works>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Premium_Work)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_Premium_Work)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price_Premium_Work)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Premium_Work)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_Premium_Work)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price_Premium_Work)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Number_Premium_Work }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Number_Premium_Work }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Number_Premium_Work })
+        </td>
+    </tr>
+}
+
+</table>

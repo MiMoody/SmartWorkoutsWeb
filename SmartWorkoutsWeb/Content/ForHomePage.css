@@ -1,0 +1,601 @@
+﻿
+body {
+    background-image: url('/Content/Images/EmptyBackground.jpg');
+}
+.MainContainer {
+    background-image: url('/Content/Images/Harper _ Nike _ Neon Studio3.png');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+
+.FirstContainer{
+    margin-top:9%;
+}
+.ThirdContainer {
+    margin-top: 9%;
+    padding:0;
+}
+
+.TextBlockFirst {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: bold;
+    font-size: 2.3rem;
+    text-align: justify !important;
+    line-height: 120%;
+    letter-spacing: 2.8px;
+}
+.TextBlockSecond {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: bold;
+    font-size: 2.3rem;
+    text-align: justify !important;
+    line-height: 110%;
+    letter-spacing: 5.3px;
+}
+.TextBlockThird {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 100 !important;
+    font-size: 1.2rem;
+    display:block;
+    margin-top: 5%;
+}
+.BtnMoreInfo {
+    width: 50%;
+    border-radius: 50px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    color: #1A1616 !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
+    border: none !important;
+    margin-top: 8%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.SecondContainer ,.FourthContainer {
+    height: auto;
+    margin-top:20%; 
+}
+.SecondContainer {
+    margin-bottom:15% ;
+}
+.FifthContainer {
+    margin-top: 7%;
+}
+
+
+.HeadAdvantages {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-size: 2.2rem;
+    margin-bottom:60px;
+}
+
+.ImgAdvantages{
+    width:130px;
+    height:130px;
+}
+.HeadTextAdventages {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-size: 1.7rem;
+}
+.MainTextAdvantages {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 300 !important;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.ForTextBlock{
+    right: 0%;
+    width: 40% !important;
+    bottom: 1.25rem;
+    left: 5% !important;
+    bottom: 40% !important;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center !important;
+}
+.HeadSlider {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 120%;
+    letter-spacing: 2.8px;
+}
+.TextSlider {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 100 !important;
+    font-size: 1.2rem;
+    text-align:center;
+
+}
+.FourthContainer {
+    height: auto;
+    margin-top: 5%;
+}
+.ImgFeedback {
+    width: 200px;
+    height: 200px;
+}
+
+.ForStarsIcon {
+    color: #FAC45B;
+    font-size:22px;
+}
+
+
+.HeaderPosts {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-size: 2.2rem;
+    margin-bottom:50px;
+}
+.ContentPosts {
+    color: white !important;
+    font-weight: 300 !important;
+    font-style: normal;
+    font-size: 0.9rem;
+    height:175px;
+    text-align:justify;
+}
+.HeadPosts {
+    color: white !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-size: 1.7rem;
+}
+.ImgPost{
+    max-height:300px;
+    width:auto;
+}
+.MoreInfoSlider {
+    width: 40%;
+    border-radius: 50px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    color: #1A1616 !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
+    border: none !important;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.control-next,.control-prev {
+    position: relative;
+    left:10px;
+    display: inline-flex;
+    height: 15%;
+    width: 7%;
+}
+.PrevNextText {
+    color: #fff !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 100 !important;
+    font-size: 0.9rem;
+    display:inline-block;
+    margin-left:20px;
+}
+
+.ContainerForConnection {
+        width: 80%;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid #FFFFFF;
+    box-sizing: border-box;
+}
+.HeaderData {
+    color: white !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-size: 1.4rem;
+    letter-spacing:2px;
+}
+.ForInput {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1.5px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: white !important;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: 1rem;
+    height:60px;
+    padding-left:20px;
+    margin-right:10% !important;
+    margin-left:10% !important;
+    width:80%;
+}
+::-webkit-input-placeholder {
+    color: white!important;
+}
+.ForInput:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1.5px solid #FFFFFF;
+    box-shadow:none;
+}
+.SendBtn {
+    width: 80%;
+    border-radius: 50px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    color: #1A1616 !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 400 !important;
+    font-size: 1rem;
+    border: none !important;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    outline:none !important;
+}
+.SixthContainer {
+    margin-top: 8%;
+}
+footer {
+    background: #ABCFE7;
+    margin-top:7%;
+}
+
+
+
+
+
+@media (max-width: 1199px) {
+    .BlockContentPost{
+        padding-top:0 !important;
+    }
+    .BlockImgPost {
+        padding-top: 10px !important;
+    }
+    }
+@media (min-width: 1100px) and (max-width: 1310px) {
+    .FirstContainer{
+        margin-top:6%;
+    }
+    .TextBlockFirst {
+        font-size: 2.1rem;
+        line-height: 120%;
+        letter-spacing: 2.8px;
+    }
+
+    .TextBlockSecond {
+        font-size: 2.1rem;
+        line-height: 110%;
+        letter-spacing: 5.3px;
+    }
+
+    .TextBlockThird {
+        font-size: 1.1rem;
+    }
+
+    .BtnMoreInfo {
+        margin-top: 7%;
+    }
+}
+@media (min-width: 1050px) and (max-width: 1149px) {
+
+    .FirstContainer {
+        margin-top: 5%;
+    }
+
+    .TextBlockFirst {
+        font-size: 2.0rem;
+        line-height: 120%;
+        letter-spacing: 2.8px;
+    }
+
+    .TextBlockSecond {
+        font-size: 2.0rem;
+        line-height: 110%;
+        letter-spacing: 5.3px;
+    }
+
+    .TextBlockThird {
+        font-size: 1.0rem;
+    }
+
+    .BtnMoreInfo {
+        margin-top: 7%;
+        font-size:1.1rem;
+    }
+}
+@media (min-width: 992px) and (max-width: 1050px) {
+
+    .FirstContainer {
+        margin-top: 5%;
+    }
+
+    .TextBlockFirst {
+        font-size: 1.9rem;
+        line-height: 120%;
+        letter-spacing: 2.8px;
+    }
+
+    .TextBlockSecond {
+        font-size: 1.9rem;
+        line-height: 110%;
+        letter-spacing: 5.3px;
+    }
+
+    .TextBlockThird {
+        font-size: 0.9rem;
+    }
+
+    .BtnMoreInfo {
+        margin-top: 7%;
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 991px) {
+    .MainContainer {
+        background-image: url('/Content/Images/EmptyBackground.jpg');
+    }
+    .SecondContainer{
+        margin-bottom:2%;
+    }
+    
+    .HeadSlider {
+        color: white !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: bold;
+        font-size: 1.8rem;
+        line-height: 120%;
+        letter-spacing: 2.8px;
+    }
+
+    .TextSlider {
+        color: white !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: 100 !important;
+        font-size: 0.8rem;
+    }
+    .ForTextBlock {
+        bottom: 30% !important;
+    }
+   
+    #carouselExampleDark2{
+        margin-top:3%;
+
+    }
+
+}
+@media (max-width: 692px) {
+
+    .HeadSlider {
+        font-size: 1.4rem;
+    }
+
+    .TextSlider {
+        font-size: 0.6rem;
+    }
+
+    .ForTextBlock {
+        bottom: 30% !important;
+    }
+
+    .ContentPosts {
+        height: 110px;
+    }
+}
+@media (max-width: 564px) {
+
+    .HeadSlider {
+        font-size: 1.2rem;
+    }
+
+    .TextSlider {
+        display: none;
+    }
+
+    .ForTextBlock {
+        bottom: 35% !important;
+    }
+
+    .ContentPosts {
+        height: 110px;
+    }
+
+    .MoreInfoSlider {
+        font-size: 1rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 9%;
+        margin-left: 10px;
+    }
+
+    .PrevNextText {
+        display: none;
+    }
+}
+@media (max-width: 472px) {
+    .TextBlockFirst {
+        font-size: 1.7rem;
+        line-height: 120%;
+        letter-spacing: 2.8px;
+    }
+
+    .TextBlockSecond {
+        font-size: 1.7rem;
+        line-height: 110%;
+        letter-spacing: 4.7px;
+    }
+
+    .TextBlockThird {
+        font-size: 0.8rem;
+    }
+
+    .BtnMoreInfo {
+        margin-top: 7%;
+        border-radius: 40px;
+        font-size: 1.1rem;
+    }
+
+    .HeadAdvantages {
+        color: white !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: 700 !important;
+        font-style: normal;
+        font-size: 1.9rem;
+    }
+
+    .ImgAdvantages {
+        width: 110px;
+        height: 110px;
+    }
+
+    .HeadTextAdventages {
+        color: white !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: 700 !important;
+        font-style: normal;
+        font-size: 1.6rem;
+    }
+
+    .MainTextAdvantages {
+        color: white !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: 300 !important;
+        font-style: normal;
+        font-size: 0.8rem;
+    }
+
+    .HeadSlider {
+        font-size: 1rem;
+    }
+
+    .TextSlider {
+        display: none;
+    }
+
+    .ForTextBlock {
+        bottom: 35% !important;
+    }
+
+
+    .ContentPosts {
+        color: white !important;
+        font-weight: 300 !important;
+        font-style: normal;
+        font-size: 0.8rem;
+        height: 175px;
+        text-align: justify;
+    }
+
+    .HeadPosts {
+        font-size: 1.3rem;
+    }
+    .MoreInfoSlider {
+        font-size: 0.7rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 12%;
+    }
+}
+@media (max-width: 420px) {
+
+    .HeadSlider {
+        font-size: 0.7rem;
+    }
+
+    .TextSlider {
+        display: none;
+    }
+
+    .ForTextBlock {
+        bottom: 35% !important;
+    }
+ 
+}
+@media (max-width: 392px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 14%;
+    }
+    .MoreInfoSlider {
+        font-size: 0.6rem;
+    }
+    .HeaderPosts {
+        font-size: 1.9rem;
+    }
+    .HeadPosts {
+        font-size: 1.0rem;
+    }
+   .MoreInfoSlider{
+       width:50%;
+   }
+}
+@media (max-width: 356px) {
+    .ContentPosts{
+        height:100px;
+    }
+
+    .MoreInfoSlider {
+        font-size: 0.6rem;
+    }
+}
+@media (max-width: 339px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 16%;
+    }
+
+    .MoreInfoSlider {
+        font-size: 0.6rem;
+    }
+}
+@media (max-width: 320px) {
+
+    .HeadSlider {
+        font-size: 0.5rem;
+    }
+
+    .TextSlider {
+        display: none;
+    }
+
+    .ForTextBlock {
+        bottom: 35% !important;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 17%;
+    }
+
+    .MoreInfoSlider {
+        font-size: 0.6rem;
+        padding:10px;
+    }
+    .BtnMoreInfo{
+        width:70%;
+    }
+    .ForInput {
+        
+        font-size: 0.8rem;
+    }
+    .HeaderData {
+        font-size: 1.1rem;
+    }
+  
+}

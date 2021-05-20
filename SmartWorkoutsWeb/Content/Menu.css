@@ -1,0 +1,54 @@
+﻿@font-face {
+    font-family: 'Domotika-Pro';
+    font-weight: normal;
+    src: local('Domotika-Pro'), url(/Content/Fonts/Domotika-Pro-Regular-trial.ttf);
+}
+
+@font-face {
+    font-family: 'Domotika-Pro';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Domotika-Pro'), url(Fonts/Domotika-Pro-Light-trial.ttf);
+}
+
+@font-face {
+    font-family: 'Domotika-Pro';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Domotika-Pro'), url(/Content/Fonts/Domotika-Pro-Bold-trial.ttf);
+}
+
+.TextParametres {
+    color: #000000 !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.Burger {
+    color: #000000 !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border: none !important;
+    outline:none!important;
+}
+    .Burger:active {
+        outline: none !important;
+    }
+.fa-bars{
+    font-size:30px!important;
+}
+
+
+@media (max-width: 1200px) {
+    .TextParametres {
+        color: #000000 !important;
+        font-family: 'Domotika-Pro' !important;
+        font-weight: 500;
+        font-size: 1.0rem;
+    }
+    .Logo {
+        width: 160px;
+    }
+}
+

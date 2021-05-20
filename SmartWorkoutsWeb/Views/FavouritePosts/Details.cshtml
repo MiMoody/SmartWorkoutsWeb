@@ -1,0 +1,34 @@
+﻿@model SmartWorkoutsWeb.Models.FavouritePosts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FavouritePosts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Posts.NamePost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posts.NamePost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFavPost }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

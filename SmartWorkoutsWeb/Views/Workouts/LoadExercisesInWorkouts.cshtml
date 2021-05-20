@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SmartWorkoutsWeb.Models.WorkoutElements>
+<div id="accordion">
+    @if (Model != null)
+    {
+        string collapseNum ="";
+        int i = 1;
+        foreach (var item in Model)
+        {
+            collapseNum = "collapse"+item.Exercises.ID_Exercise;
+            //Random rnd = new Random();
+            //Char[] pwdChars = new Char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            //collapseNum = String.Empty;
+            //for (int j = 0; j < 10; j++)
+            //{
+            //    collapseNum += pwdChars[rnd.Next(0, 25)];
+            //}
+            if (i == 1)
+            {
+                <div class="card">
+                    <div class="card-header" id="heading_@item.Exercises.ID_Exercise">
+                        <button class="btn  BtnAccordion" data-toggle="collapse" onclick="test(this)" data-target="#@collapseNum" aria-expanded="true" aria-controls="@collapseNum">
+                            <i class="fa fa-minus" aria-hidden="true"></i> Упражнение 1
+                        </button>
+                    </div>
+
+                    <div id="@collapseNum" class="collapse show" aria-labelledby="heading_@item.Exercises.ID_Exercise" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card">
+                    <div class="card-header" id="heading_@item.Exercises.ID_Exercise">
+                        <button class="btn  BtnAccordion" data-toggle="collapse" onclick="test(this)" data-target="#@collapseNum" aria-expanded="false" aria-controls="@collapseNum">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Упражнение 1
+                        </button>
+                    </div>
+
+                    <div id="@collapseNum" class="collapse" aria-labelledby="heading_@item.Exercises.ID_Exercise" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            }
+            i++;
+        }
+    }
+</div>

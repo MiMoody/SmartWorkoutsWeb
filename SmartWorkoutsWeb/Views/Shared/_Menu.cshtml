@@ -1,0 +1,27 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/Home/Index"><img src="~/Content/Images/лого.svg" alt="..." class="Logo" /></a>
+        <button class="navbar-toggler navbar-toggler-right Burger" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars ml-1 "></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto " >
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Exercises/Index">Упражнения</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Premium_Works/Index">Подписки</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Workouts/Index">Тренировки</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Home/Logout">Выход</a></li>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Premium_Works/Index">Подписки</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres " onclick="OpenАuthorization()"> Вход</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
