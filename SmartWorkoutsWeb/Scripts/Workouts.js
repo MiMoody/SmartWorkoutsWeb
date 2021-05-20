@@ -42,7 +42,7 @@ $(function ()
 	});
 });
 function LoadWorkouts(item) {
-	let id = item.id;
+	let id = $(item).attr("name");
 	let object = {
 		Type: id
 	};

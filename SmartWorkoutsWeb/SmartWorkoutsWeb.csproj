@@ -300,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\ExerciseGifs\" />
+    <Folder Include="Content\Images\PostImages\" />
+    <Folder Include="Content\Images\WorkoutImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\Domotika-Pro-Bold-trial.ttf" />

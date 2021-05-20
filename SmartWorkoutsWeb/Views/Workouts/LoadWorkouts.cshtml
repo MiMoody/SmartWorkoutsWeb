@@ -4,16 +4,16 @@
 @if (Model != null)
 {
     <h2 class="text-center mb-5" style="color:white;">Вам доступны следующие тренировки: </h2>
-    <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-lg-3">
+    <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-lg-3 d-flex justify-content-center" >
         @foreach (var item in Model)
         {
             @*@Html.DisplayFor(modelItem => item.PicturePath)*@
             <div class="col mb-5  ">
                 <div class="card mx-auto ForCard">
-                    <img src="~/Content/Images/ForSliderTypeWorkouts/1.jpg" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
+                    <img src="~/Content/Images/WorkoutImages/@Html.DisplayFor(modelItem => item.PicturePath)" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body text-center">
                         <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name_Workout)</h5>
-                        <p class="card-text text-justify overflow-hidden">@Html.DisplayFor(modelItem => item.Description_Workout)</p>
+                        <p class="card-text text-center overflow-hidden ">@Html.DisplayFor(modelItem => item.Description_Workout)</p>
                         <a id="@Html.DisplayFor(modelItem => item.ID_Workout)" class="btn btn-primary" onclick="OpenModelWorkout(this)">Просмотреть</a>
                     </div>
                 </div>

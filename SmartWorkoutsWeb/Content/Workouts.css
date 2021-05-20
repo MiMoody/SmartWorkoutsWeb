@@ -12,8 +12,24 @@
 .ForCard .card-text {
     height: 75px;
 }
+#ContentModalWorkout {
+   text-align:center!important;
+}
 
+.BtnAccordion{
+    box-shadow:none!important;
+    
+    
+}
+@media (max-width: 992px) {
+    .TextAboutExercise {
+        font-size: 0.9rem;
+    }
 
+    #ContentModalWorkout {
+        font-size: 0.9rem;
+    }
+}
 @media (min-width: 576px) and (max-width: 767px) {
     .ForCard {
         width:14rem;
@@ -46,16 +62,27 @@
         margin: auto !important;
     }
 }
+@media (max-width: 450px) {
+    .TextAboutExercise{
+        font-size:0.7rem;
+    }
 
+    #ContentModalWorkout {
+        font-size: 0.8rem;
+    }
+}
+    
 @media (max-width: 350px) {
     .ForCard {
         width: 14rem;
     }
-   .ForCard .card-title {
-        font-size:1.1rem;
+
+    .ForCard .card-title {
+        font-size: 1.1rem;
     }
+
     .ForCard .card-text {
         font-size: 0.9rem;
-        height:65px;
+        height: 65px;
     }
 }

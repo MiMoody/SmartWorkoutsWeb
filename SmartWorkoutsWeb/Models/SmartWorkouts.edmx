@@ -15,6 +15,7 @@
           <Property Name="Duration_Exercise" Type="int" Nullable="false" />
           <Property Name="Type_Exercise" Type="int" />
           <Property Name="Premium_Work_Number" Type="int" />
+          <Property Name="PicturePath" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="FavouritePosts">
           <Key>
@@ -304,6 +305,7 @@
           <NavigationProperty Name="Premium_Works" Relationship="Self.FK_Exercises_Premium_Works" FromRole="Exercises" ToRole="Premium_Works" />
           <NavigationProperty Name="Types_Workout" Relationship="Self.FK_Exercises_Types_Workout" FromRole="Exercises" ToRole="Types_Workout" />
           <NavigationProperty Name="WorkoutElements" Relationship="Self.FK_WorkoutElements_Exercises" FromRole="Exercises" ToRole="WorkoutElements" />
+          <Property Name="PicturePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="FavouritePosts">
           <Key>
@@ -602,6 +604,7 @@
           <EntitySetMapping Name="Exercises">
             <EntityTypeMapping TypeName="SmartWorkouts_newModel.Exercises">
               <MappingFragment StoreEntitySet="Exercises">
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
                 <ScalarProperty Name="ID_Exercise" ColumnName="ID_Exercise" />
                 <ScalarProperty Name="Name_Exercise" ColumnName="Name_Exercise" />
                 <ScalarProperty Name="Description_Exercise" ColumnName="Description_Exercise" />
