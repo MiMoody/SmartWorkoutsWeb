@@ -8,7 +8,7 @@
             <ul class="navbar-nav text-uppercase ml-auto " >
                 @if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Exercises/Index">Упражнения</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" onclick="OpenProgress()">Прогресс</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Premium_Works/Index">Подписки</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Workouts/Index">Тренировки</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger TextParametres" href="Home/Logout">Выход</a></li>

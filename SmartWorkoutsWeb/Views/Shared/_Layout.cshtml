@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - приложение ASP.NET</title>
     @Styles.Render("~/Content/Menu.css")
-    @*@Styles.Render("~/Content/Login.css")*@
+    @Styles.Render("~/Content/UserProgress.css")
     @Styles.Render("~/Content/Bootstrap/bootstrap.min.css")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/Content/Login.css">
     <link rel="stylesheet" href="~/Content/datepicker.css">
     <link rel="stylesheet" href="~/Content/Registration.css">
@@ -21,17 +22,81 @@
 
     @RenderBody()
     @RenderSection("scripts", required: false)
+    <div class="modal fade mr-0" id="ModalProgress" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content BackModalContent">
+                <div class="modal-header CompleteReg text-center" style="color:white!important">
+                    <h5 class="modal-title">Ваш прогресс</h5>
+                    <button type="button" class="close" data-dismiss="modal" style="outline:none!important" aria-label="Close">
+                        <span aria-hidden="true" style="color:white!important">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-around align-items-center row text-center mt-md-4">
+                        <div class="col ">
+                            <label class="weight weightCurrent">Текущий вес,кг</label>
+                            <div class="input-group mb-3 mx-auto GroupInput">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary minus" type="button" onclick="ClickMinus(this)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                </div>
+                                <input type="text" class="form-control CurrentResult text-center" id="CurrentWeight">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary plus" type="button" onclick="ClickPlus(this)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-around align-items-center row text-center mt-md-4 row-cols-1 row-cols-sm-2">
+                        <div class="col ">
+                            <label class="weight OtherWeight">Начальный вес,кг</label>
+                            <div class="input-group mb-3 mx-auto OtherGroups" style="width:90%;">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary minus ForSigns" type="button" onclick="ClickMinus(this)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                </div>
+                                <input type="text" class="form-control OtherResults text-center" id="StartWeight">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary plus ForSigns" type="button" onclick="ClickPlus(this)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="weight OtherWeight">Желанный вес,кг</label>
+                            <div class="input-group mb-3 mx-auto OtherGroups" style="width:90%;">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary minus ForSigns" type="button" onclick="ClickMinus(this)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                </div>
+                                <input type="text" class="form-control OtherResults text-center" id="DesidedWeight">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary plus ForSigns" type="button" onclick="ClickPlus(this)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-around align-items-center row text-center mt-md-4 mb-3 RowBtn">
+                        <button class="btn btn-primary BtnSave" onclick="ClickSave()"> <i class="bi bi-pencil-fill"></i>   Сохранить</button>
+                    </div>
+                    <p id="HeadRes" class="text-center"> Ваш результат:</p>
+                    <div class="d-flex justify-content-around align-items-center row text-center mt-md-4 ">
+                        <div class="circle" id="CircleProgress"></div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
     @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
     @Scripts.Render("~/Scripts/Bootstrap/bootstrap.min.js")
     @Scripts.Render("~/Scripts/popper.min.js")
-    @Scripts.Render("~/Scripts/test.js")
+
     @* <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>*@
     @* <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>*@
     @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 
     @Scripts.Render("https://kit.fontawesome.com/b781c44b15.js")
 
-
+    <script type="text/javascript" src="~/Scripts/Circle/circles.js"></script>
+    <script type="text/javascript" src="~/Scripts/UserProgress.js"></script>
     <script src="~/Scripts/SendEmail.js"></script>
     <script src="~/Scripts/TextInModal.js"></script>
     <script src="~/Scripts/datepicker.js"></script>

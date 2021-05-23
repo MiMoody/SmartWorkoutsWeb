@@ -35,6 +35,8 @@ namespace SmartWorkoutsWeb.Controllers
         public ActionResult Index()
         {
             var list = db.Posts.OrderByDescending(model=>model.ID_Post).Take(5);
+            var Infouser = User.Identity.Name;
+            var r = 123;
             return View(list);
         }
 

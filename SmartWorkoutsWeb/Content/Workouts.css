@@ -21,6 +21,9 @@
     
     
 }
+.card .fa-plus, .card .fa-minus {
+    color:black!important;
+}
 @media (max-width: 992px) {
     .TextAboutExercise {
         font-size: 0.9rem;
@@ -70,9 +73,17 @@
     #ContentModalWorkout {
         font-size: 0.8rem;
     }
+    .BtnAccordion{
+        font-size:0.9rem;
+    }
 }
-    
-@media (max-width: 350px) {
+@media (max-width: 405px) {
+ 
+    .BtnAccordion {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 352px) {
     .ForCard {
         width: 14rem;
     }
@@ -84,5 +95,8 @@
     .ForCard .card-text {
         font-size: 0.9rem;
         height: 65px;
+    }
+    .BtnAccordion {
+        font-size: 0.7rem;
     }
 }

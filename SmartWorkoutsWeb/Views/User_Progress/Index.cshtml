@@ -1,57 +1,53 @@
-﻿@model IEnumerable<SmartWorkoutsWeb.Models.User_Progress>
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SmartWorkouts</title>
+        @Styles.Render("~/Content/UserProgress.css")
+    </head>
+    <body>
 
-@{
-    ViewBag.Title = "Index";
-}
+        <div class="container-fluid MainContainer ">
+            @if (Session["Menu"] == null)
+            {
+                Session["Menu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+            }
+            @Session["Menu"]
 
-<h2>Index</h2>
+            <div class="container">
+                @*  <div class="circle" id="CircleProgress"></div>*@
+                <div class="row d-flex justify-content-center">
+                    <div class="col text-center">
+                        @*<i class="bi bi-dash-circle" style=" font-size:20px;"></i>*@
+                        <div class="container m-0">
+                            @*<span class="minus">-</span>
+                            <input class="Result " type="text" value="1" />
+                            <span class="plus">+</span>*@
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                                </div>
+                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Wieght)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Waist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_Breast)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data_Measurement)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Users.Name)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User_Wieght)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User_Waist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User_Breast)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_Measurement)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Users.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Progress }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Progress }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Progress })
-        </td>
-    </tr>
-}
+        @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
+        <script type="text/javascript" src="~/Scripts/Circle/circles.js"></script>
+        <script type="text/javascript" src="~/Scripts/UserProgress.js"></script>
+        @Scripts.Render("https://kit.fontawesome.com/b781c44b15.js")
 
-</table>
+
+    </body>
+</html>

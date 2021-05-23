@@ -21,105 +21,61 @@ namespace SmartWorkoutsWeb.Controllers
             return View(user_Progress.ToList());
         }
 
-        // GET: User_Progress/Details/5
-        public ActionResult Details(int? id)
+        [HttpPost]
+        public ActionResult GetProgress()
         {
-            if (id == null)
+            if (User.Identity.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var id = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+
+                var progress = db.User_Progress.Where(p => p.User_ID == id).FirstOrDefault();
+
+                if (progress == null)
+                {
+                    return Json(new { StartWeight = "0", CurrentWeight = "0", DesiredWeight = "0" });
+                }
+
+                return Json(new { StartWeight = progress.StartWeight, CurrentWeight = progress.CurrentWeight, DesiredWeight = progress.DesiredWeight});
             }
-            User_Progress user_Progress = db.User_Progress.Find(id);
-            if (user_Progress == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user_Progress);
+            return Json(new { StartWeight = "0", CurrentWeight = "0", DesiredWeight = "0" });
+
         }
 
-        // GET: User_Progress/Create
-        public ActionResult Create()
+        [HttpPost]
+        public void UpdateCreateProgress(string StartWeight, string CurrentWeight, string DesiredWeight)
         {
-            ViewBag.User_ID = new SelectList(db.Users, "ID_User", "Name");
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                StartWeight = StartWeight.Replace(".", ",");
+                CurrentWeight = CurrentWeight.Replace(".", ",");
+                DesiredWeight = DesiredWeight.Replace(".", ",");
+                var id = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+                var progress = db.User_Progress.Where(p => p.User_ID == id).FirstOrDefault();
+                if (progress!=null)
+                {
+                    progress.StartWeight = Convert.ToDecimal(StartWeight);
+                    progress.CurrentWeight = Convert.ToDecimal(CurrentWeight);
+                    progress.DesiredWeight = Convert.ToDecimal(DesiredWeight);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    User_Progress InfoProgress = new User_Progress();
+                    InfoProgress.User_ID = id;
+                    InfoProgress.StartWeight = Convert.ToDecimal(StartWeight);
+                    InfoProgress.CurrentWeight = Convert.ToDecimal(CurrentWeight);
+                    InfoProgress.DesiredWeight = Convert.ToDecimal(DesiredWeight);
+                    db.User_Progress.Add(InfoProgress);
+                    db.SaveChanges();
+                }
+            }
         }
-
         // POST: User_Progress/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_Progress,User_Wieght,User_Waist,User_Breast,Data_Measurement,User_ID")] User_Progress user_Progress)
-        {
-            if (ModelState.IsValid)
-            {
-                db.User_Progress.Add(user_Progress);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.User_ID = new SelectList(db.Users, "ID_User", "Name", user_Progress.User_ID);
-            return View(user_Progress);
-        }
-
+       
         // GET: User_Progress/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User_Progress user_Progress = db.User_Progress.Find(id);
-            if (user_Progress == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.User_ID = new SelectList(db.Users, "ID_User", "Name", user_Progress.User_ID);
-            return View(user_Progress);
-        }
-
-        // POST: User_Progress/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_Progress,User_Wieght,User_Waist,User_Breast,Data_Measurement,User_ID")] User_Progress user_Progress)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user_Progress).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.User_ID = new SelectList(db.Users, "ID_User", "Name", user_Progress.User_ID);
-            return View(user_Progress);
-        }
-
-        // GET: User_Progress/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User_Progress user_Progress = db.User_Progress.Find(id);
-            if (user_Progress == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user_Progress);
-        }
-
-        // POST: User_Progress/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            User_Progress user_Progress = db.User_Progress.Find(id);
-            db.User_Progress.Remove(user_Progress);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
+     
         protected override void Dispose(bool disposing)
         {
             if (disposing)

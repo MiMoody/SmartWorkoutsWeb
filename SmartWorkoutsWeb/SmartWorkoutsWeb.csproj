@@ -231,6 +231,7 @@
     <Content Include="Content\Slick\sl-arrow_l.svg" />
     <Content Include="Content\Slick\sl-arrow_r.svg" />
     <Content Include="Content\Slick\slick.css" />
+    <Content Include="Content\UserProgress.css" />
     <Content Include="Content\Workouts.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -253,6 +254,7 @@
     </Content>
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\Circle\circles.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\i18n\datepicker.cs.js" />
     <Content Include="Scripts\i18n\datepicker.da.js" />
@@ -281,6 +283,7 @@
     <Content Include="Scripts\Slick\slick.min.js" />
     <Content Include="Scripts\test.js" />
     <Content Include="Scripts\TextInModal.js" />
+    <Content Include="Scripts\UserProgress.js" />
     <Content Include="Scripts\Validation.js" />
     <Content Include="Scripts\Workouts.js" />
     <Content Include="Web.config" />

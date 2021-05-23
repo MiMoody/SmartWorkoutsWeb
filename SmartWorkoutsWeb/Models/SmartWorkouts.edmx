@@ -66,11 +66,10 @@
             <PropertyRef Name="ID_Progress" />
           </Key>
           <Property Name="ID_Progress" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="User_Wieght" Type="numeric" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="User_Waist" Type="numeric" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="User_Breast" Type="numeric" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Data_Measurement" Type="date" Nullable="false" />
           <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="StartWeight" Type="numeric" Precision="18" Scale="1" Nullable="false" />
+          <Property Name="CurrentWeight" Type="numeric" Precision="18" Scale="1" Nullable="false" />
+          <Property Name="DesiredWeight" Type="numeric" Precision="18" Scale="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -364,12 +363,11 @@
             <PropertyRef Name="ID_Progress" />
           </Key>
           <Property Name="ID_Progress" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="User_Wieght" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="User_Waist" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="User_Breast" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Data_Measurement" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="User_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Progress_Users" FromRole="User_Progress" ToRole="Users" />
+          <Property Name="StartWeight" Type="Decimal" Nullable="false" Precision="18" Scale="1" />
+          <Property Name="CurrentWeight" Type="Decimal" Nullable="false" Precision="18" Scale="1" />
+          <Property Name="DesiredWeight" Type="Decimal" Nullable="false" Precision="18" Scale="1" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -666,11 +664,10 @@
           <EntitySetMapping Name="User_Progress">
             <EntityTypeMapping TypeName="SmartWorkouts_newModel.User_Progress">
               <MappingFragment StoreEntitySet="User_Progress">
+                <ScalarProperty Name="DesiredWeight" ColumnName="DesiredWeight" />
+                <ScalarProperty Name="CurrentWeight" ColumnName="CurrentWeight" />
+                <ScalarProperty Name="StartWeight" ColumnName="StartWeight" />
                 <ScalarProperty Name="ID_Progress" ColumnName="ID_Progress" />
-                <ScalarProperty Name="User_Wieght" ColumnName="User_Wieght" />
-                <ScalarProperty Name="User_Waist" ColumnName="User_Waist" />
-                <ScalarProperty Name="User_Breast" ColumnName="User_Breast" />
-                <ScalarProperty Name="Data_Measurement" ColumnName="Data_Measurement" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
               </MappingFragment>
             </EntityTypeMapping>

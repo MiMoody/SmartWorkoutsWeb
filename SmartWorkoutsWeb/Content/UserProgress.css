@@ -1,0 +1,165 @@
+﻿.MainContainer {
+    background-image: url('/Content/Images/EmptyBackground.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+.GroupInput{
+    width:70%!important;
+}
+.weight {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 500 !important;
+    letter-spacing: 2px;
+}
+.OtherWeight{
+    font-size:1.1rem;
+}
+.ForSigns {
+    width: 40px !important;
+    height: 40px !important;
+}
+.minus, .plus {
+    border-radius: 10px !important;
+    height: 50px;
+    border: 2px solid white !important;
+    box-shadow: none !important;
+    width: 50px;
+}
+.minus:hover, .plus:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.CurrentResult {
+    background: rgba(255, 255, 255, 0.3)!important;
+    border: 1.5px solid #FFFFFF!important;
+    box-sizing: border-box;
+    border-radius: 10px!important;
+    color: white !important;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: 1rem;
+    height: 50px;
+    padding-left: 20px;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+    width: 100%;
+    margin-left:10px!important;
+    margin-right:10px!important;
+    box-shadow:none!important;
+}
+.OtherResults {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 1.5px solid #FFFFFF !important;
+    box-sizing: border-box;
+    border-radius: 10px !important;
+    color: white !important;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: 1rem;
+    height: 40px;
+    padding-left: 20px;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+    width: 100%;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    box-shadow: none !important;
+}
+.fa-minus, .fa-plus {
+    color: white !important;
+    font-weight: bold;
+    font-size: 15px !important;
+}
+
+.circles-text{
+    font-size:2.9rem!important;
+    /*color:white;*/
+}
+
+.BtnSave {
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 400 !important;
+    width: 50% !important;
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 40px !important;
+    height: 40px !important;
+    color: black !important;
+    font-size: 1.1rem !important;
+}
+#CompleteSave {
+    color: black;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    text-align: center;
+    
+}
+#HeadRes {
+    color: white !important;
+    font-size: 1.3rem !important;
+    font-family: 'Domotika-Pro' !important;
+    font-weight: 700 !important;
+}
+#CurrentWeight {
+    font-size:1.5rem!important;
+}
+@media (max-width: 991px) {
+    .OtherWeight {
+        font-size: 0.7rem;
+    }
+    .OtherGroups{
+        width:100%!important;
+    }
+}
+@media (max-width: 991px) {
+    .OtherWeight {
+        font-size: 1.1rem;
+    }
+
+    .OtherGroups {
+        width: 80% !important;
+    }
+    .GroupInput{
+        width:80%!important;
+    }
+}
+@media (max-width: 400px) {
+    .OtherWeight {
+        font-size: 0.8rem;
+    }
+
+    .OtherGroups {
+        width: 90% !important;
+    }
+    .GroupInput{
+        width:90%!important;
+    }
+    .weightCurrent {
+        font-size: 0.8rem;
+    }
+    .CurrentResult {
+        height: 40px;
+
+    }
+    .minus, .plus {
+        height: 40px;
+        width: 40px;
+    }
+    .BtnSave{
+        font-size:1rem!important;
+    }
+    #CurrentWeight {
+        font-size: 1rem !important;
+    }
+    #CompleteSave {
+        font-size: 1.1rem;
+       
+    }
+}

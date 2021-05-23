@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="slider__item">
-                    <div class="card CardSlider"  name="Hands" onclick="LoadWorkouts(this)">
+                    <div class="card CardSlider" name="Hands" onclick="LoadWorkouts(this)">
                         <img src="~/Content/Images/ForSliderTypeWorkouts/руки.jpg" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Руки</h5>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="slider__item">
-                    <div class="card CardSlider"  name="Back" onclick="LoadWorkouts(this)">
+                    <div class="card CardSlider" name="Back" onclick="LoadWorkouts(this)">
                         <img src="~/Content/Images/ForSliderTypeWorkouts/спина.jpg" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Спина</h5>
@@ -82,17 +82,17 @@
     <div class="modal fade  mr-0" id="ModalWorkout" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content ">
-                <div class="modal-header  text-center" >
+                <div class="modal-header  text-center">
                     <h5 class="modal-title" id="HeaderModelWorkout"></h5>
-                    <button type="button" class="close" data-dismiss="modal"  style="outline:none!important" aria-label="Close">
-                        <span aria-hidden="true" >&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" style="outline:none!important" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <h6 class="text-center">Описание тренировки</h6>
                     <p id="ContentModalWorkout"></p>
                     <h6 class="text-center">Состав упражнений в тренировке</h6>
-                    <div class="container" id="ExercisesWorkout" ></div>
+                    <div class="container" id="ExercisesWorkout"></div>
                 </div>
             </div>
         </div>
@@ -101,6 +101,7 @@
     @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/Scripts/Workouts.js"></script>
+    @Scripts.Render("https://kit.fontawesome.com/b781c44b15.js")
 
 
 </body>
