@@ -17,6 +17,9 @@ namespace SmartWorkoutsWeb.Controllers
         // GET: Workouts
         public ActionResult Index()
         {
+            int userId = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+            ValidateSubscription.CheckBuy(userId);
+            ValidateSubscription.CheckTime(userId);
             var workouts = db.Workouts.Include(w => w.Premium_Works).Include(w => w.Types_Workout);
             return View(workouts.ToList());
         }
@@ -25,29 +28,38 @@ namespace SmartWorkoutsWeb.Controllers
         [HttpPost]
         public ActionResult LoadWorkouts(string Type)
         {
+            int premwork = Convert.ToInt32(db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().PremiumNumber);
+
             IQueryable<Workouts> workouts=null;
             switch (Type)
             {
                 case "Legs":
-                     workouts = db.Workouts.Where(p => p.Type_Workout == 3);
-                break;
+                    if (premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 3);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 3 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));
+
+                    break;
 
                 case "Back":
-                     workouts = db.Workouts.Where(p => p.Type_Workout == 2);
-                   break;
+                    if (premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 2);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 2 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));
+                    break;
 
                 case "Breast":
-                    workouts = db.Workouts.Where(p => p.Type_Workout == 1);
+                    if (premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 1);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 1 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));
                     break;
                 case "Hands":
-                    workouts = db.Workouts.Where(p => p.Type_Workout == 4);
+                    if(premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 4);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 4 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));
                     break;
                 case "Press":
-                    workouts = db.Workouts.Where(p => p.Type_Workout == 8);
+                    if (premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 8);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 8 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));
                     break;
 
                 case "AllBody":
-                    workouts = db.Workouts.Where(p => p.Type_Workout == 7);
+                    if (premwork == 7) workouts = db.Workouts.Where(p => p.Type_Workout == 7);
+                    else workouts = db.Workouts.Where(p => p.Type_Workout == 7 && (p.Number_Premium_Workout == premwork || p.Number_Premium_Workout == 5));   
                     break;
             }
 

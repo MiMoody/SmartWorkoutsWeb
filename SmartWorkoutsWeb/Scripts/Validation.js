@@ -151,6 +151,9 @@ function Regestration(item) {
         $.ajax({
             type: 'POST',
             url: '/Users/CheckRepeatLogin',
+            beforeSend: function () {
+                $(".RegBtn").prop("disabled", true);
+            },
             contentType: 'application/json; charset=utf-8',
             data: obj,
             success: function (data) {
@@ -195,6 +198,8 @@ function Regestration(item) {
                     }));
                    
                 }
+                $(".RegBtn").prop("disabled", false);
+
             },
             error: function (data) {
                 alert(data.responseText);
@@ -241,6 +246,9 @@ function Autorization(e) {
             $.ajax({
                 type: 'POST',
                 url: '/Home/Login',
+                beforeSend: function () {
+                    $(".RegBtn").prop("disabled", true);
+                },
                 contentType: 'application/json; charset=utf-8',
                 data: obj,
                 success: function (result) {
@@ -267,6 +275,8 @@ function Autorization(e) {
                             }));
                         }
                     }
+                    $(".RegBtn").prop("disabled", false);
+
                 },
                 error: function (data) {
                     alert(data.responseText);

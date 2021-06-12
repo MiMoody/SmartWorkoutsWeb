@@ -5,6 +5,26 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище SmartWorkouts_newModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BuildID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDBuild" Type="varchar(max)" Nullable="false" />
+          <Property Name="NumberPremWork" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="IdContract" />
+          </Key>
+          <Property Name="IdContract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="NumberPremiumWork" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Exercises">
           <Key>
             <PropertyRef Name="ID_Exercise" />
@@ -43,6 +63,7 @@
           <Property Name="Name_Premium_Work" Type="varchar(max)" Nullable="false" />
           <Property Name="Description_Premium_Work" Type="text" Nullable="false" />
           <Property Name="Price_Premium_Work" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="PicturePath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -105,6 +126,30 @@
           <Property Name="Type_Workout" Type="int" />
           <Property Name="PicturePath" Type="varchar" MaxLength="200" />
         </EntityType>
+        <Association Name="FK_Contracts_Premium_Works">
+          <End Role="Premium_Works" Type="Self.Premium_Works" Multiplicity="1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Premium_Works">
+              <PropertyRef Name="Number_Premium_Work" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="NumberPremiumWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Exercises_Premium_Works">
           <End Role="Premium_Works" Type="Self.Premium_Works" Multiplicity="0..1" />
           <End Role="Exercises" Type="Self.Exercises" Multiplicity="*" />
@@ -236,6 +281,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище SmartWorkouts_newModelContainer">
+          <EntitySet Name="BuildID" EntityType="Self.BuildID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exercises" EntityType="Self.Exercises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FavouritePosts" EntityType="Self.FavouritePosts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
@@ -246,6 +293,14 @@
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkoutElements" EntityType="Self.WorkoutElements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Workouts" EntityType="Self.Workouts" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contracts_Premium_Works" Association="Self.FK_Contracts_Premium_Works">
+            <End Role="Premium_Works" EntitySet="Premium_Works" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Users" Association="Self.FK_Contracts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
           <AssociationSet Name="FK_Exercises_Premium_Works" Association="Self.FK_Exercises_Premium_Works">
             <End Role="Premium_Works" EntitySet="Premium_Works" />
             <End Role="Exercises" EntitySet="Exercises" />
@@ -338,6 +393,8 @@
           <NavigationProperty Name="Exercises" Relationship="Self.FK_Exercises_Premium_Works" FromRole="Premium_Works" ToRole="Exercises" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Premium_Works" FromRole="Premium_Works" ToRole="Users" />
           <NavigationProperty Name="Workouts" Relationship="Self.FK_Workouts_Premium_Works" FromRole="Premium_Works" ToRole="Workouts" />
+          <NavigationProperty Name="Contracts" Relationship="SmartWorkouts_newModel.FK_Contracts_Premium_Works" FromRole="Premium_Works" ToRole="Contracts" />
+          <Property Name="PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -386,6 +443,7 @@
           <NavigationProperty Name="FavouritePosts" Relationship="Self.FK_FavouritePosts_Users" FromRole="Users" ToRole="FavouritePosts" />
           <NavigationProperty Name="Premium_Works" Relationship="Self.FK_Users_Premium_Works" FromRole="Users" ToRole="Premium_Works" />
           <NavigationProperty Name="User_Progress" Relationship="Self.FK_User_Progress_Users" FromRole="Users" ToRole="User_Progress" />
+          <NavigationProperty Name="Contracts" Relationship="SmartWorkouts_newModel.FK_Contracts_Users" FromRole="Users" ToRole="Contracts" />
         </EntityType>
         <EntityType Name="WorkoutElements">
           <Key>
@@ -592,7 +650,63 @@
             <End Role="Workouts" EntitySet="Workouts" />
             <End Role="WorkoutElements" EntitySet="WorkoutElements" />
           </AssociationSet>
+          <EntitySet Name="Contracts" EntityType="SmartWorkouts_newModel.Contracts" />
+          <AssociationSet Name="FK_Contracts_Premium_Works" Association="SmartWorkouts_newModel.FK_Contracts_Premium_Works">
+            <End Role="Premium_Works" EntitySet="Premium_Works" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Users" Association="SmartWorkouts_newModel.FK_Contracts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <EntitySet Name="BuildID" EntityType="SmartWorkouts_newModel.BuildID" />
         </EntityContainer>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="IdContract" />
+          </Key>
+          <Property Name="IdContract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="NumberPremiumWork" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Premium_Works" Relationship="SmartWorkouts_newModel.FK_Contracts_Premium_Works" FromRole="Contracts" ToRole="Premium_Works" />
+          <NavigationProperty Name="Users" Relationship="SmartWorkouts_newModel.FK_Contracts_Users" FromRole="Contracts" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Contracts_Premium_Works">
+          <End Type="SmartWorkouts_newModel.Premium_Works" Role="Premium_Works" Multiplicity="1" />
+          <End Type="SmartWorkouts_newModel.Contracts" Role="Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Premium_Works">
+              <PropertyRef Name="Number_Premium_Work" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="NumberPremiumWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Users">
+          <End Type="SmartWorkouts_newModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="SmartWorkouts_newModel.Contracts" Role="Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BuildID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDBuild" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumberPremWork" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -635,6 +749,7 @@
           <EntitySetMapping Name="Premium_Works">
             <EntityTypeMapping TypeName="SmartWorkouts_newModel.Premium_Works">
               <MappingFragment StoreEntitySet="Premium_Works">
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
                 <ScalarProperty Name="Number_Premium_Work" ColumnName="Number_Premium_Work" />
                 <ScalarProperty Name="Name_Premium_Work" ColumnName="Name_Premium_Work" />
                 <ScalarProperty Name="Description_Premium_Work" ColumnName="Description_Premium_Work" />
@@ -706,6 +821,28 @@
                 <ScalarProperty Name="Description_Workout" ColumnName="Description_Workout" />
                 <ScalarProperty Name="Number_Premium_Workout" ColumnName="Number_Premium_Workout" />
                 <ScalarProperty Name="Type_Workout" ColumnName="Type_Workout" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="SmartWorkouts_newModel.Contracts">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="NumberPremiumWork" ColumnName="NumberPremiumWork" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdContract" ColumnName="IdContract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildID">
+            <EntityTypeMapping TypeName="SmartWorkouts_newModel.BuildID">
+              <MappingFragment StoreEntitySet="BuildID">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="NumberPremWork" ColumnName="NumberPremWork" />
+                <ScalarProperty Name="IDBuild" ColumnName="IDBuild" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

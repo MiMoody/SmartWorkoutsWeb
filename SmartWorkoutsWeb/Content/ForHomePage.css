@@ -343,6 +343,7 @@ footer {
         font-size: 1.1rem;
     }
 }
+
 @media (max-width: 991px) {
     .MainContainer {
         background-image: url('/Content/Images/EmptyBackground.jpg');

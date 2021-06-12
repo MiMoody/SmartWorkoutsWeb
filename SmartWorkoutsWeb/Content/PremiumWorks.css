@@ -1,0 +1,41 @@
+﻿body {
+}
+.MainContainer {
+    background-image: url('/Content/Images/EmptyBackground.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+
+.ForPrice {
+    text-align: center;
+    font-weight: bold;
+    display:block;
+    margin-bottom:10px;
+}
+.ForCard {
+    border-radius: 20px;
+}
+.imgCard {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.ForCard .card-text {
+    height: 75px;
+}
+@media (max-width: 576px) {
+    .ForCard {
+        width:24rem;
+    }
+}
+@media (max-width: 476px) {
+    .ForCard {
+        width: 20rem;
+    }
+}
+@media (max-width: 400px) {
+    .ForCard {
+        width: 18rem;
+    }
+}

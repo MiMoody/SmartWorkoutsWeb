@@ -34,16 +34,20 @@ namespace SmartWorkoutsWeb.Controllers
 
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                int userId = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+                ValidateSubscription.CheckBuy(userId);
+                ValidateSubscription.CheckTime(userId);
+            }
             var list = db.Posts.OrderByDescending(model=>model.ID_Post).Take(5);
             var Infouser = User.Identity.Name;
-            var r = 123;
             return View(list);
         }
 
         [HttpPost]
         async public Task SendMessageEmail(string Name, string Email, string Comment)
         {
-               
                     MailAddress from = new MailAddress("svev2369@gmail.com", Name);
                     MailAddress to = new MailAddress("Shevchenk201@yandex.ru");
                     MailMessage m = new MailMessage(from, to);

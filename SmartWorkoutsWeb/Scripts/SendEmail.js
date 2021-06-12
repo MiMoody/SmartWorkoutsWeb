@@ -45,7 +45,8 @@
             }));
         }
         else {
-            let regex = /^([A-Za-z0-9_\-\.])+\@@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            let regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             let validEmail = regex.test(email);
             if (!validEmail) {
                 result = false;
@@ -74,7 +75,7 @@
                     $('#SuccessSend').after($('<p>', {
                         'class': " text-success text-center SuccessCon",
                         'style': "font-size:18px;",
-                        'text': 'Комментарий успешно отправлен!'
+                        'text': 'Комментарий успешно отправлен!' 
                     }));
 
                 },

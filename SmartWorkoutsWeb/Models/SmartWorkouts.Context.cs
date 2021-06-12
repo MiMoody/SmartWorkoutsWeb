@@ -35,5 +35,7 @@ namespace SmartWorkoutsWeb.Models
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<WorkoutElements> WorkoutElements { get; set; }
         public virtual DbSet<Workouts> Workouts { get; set; }
+        public virtual DbSet<Contracts> Contracts { get; set; }
+        public virtual DbSet<BuildID> BuildID { get; set; }
     }
 }

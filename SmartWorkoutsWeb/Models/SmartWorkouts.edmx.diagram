@@ -25,6 +25,10 @@
         <AssociationConnector Association="SmartWorkouts_newModel.FK_Workouts_Types_Workout" ManuallyRouted="false" />
         <AssociationConnector Association="SmartWorkouts_newModel.FK_User_Progress_Users" ManuallyRouted="false" />
         <AssociationConnector Association="SmartWorkouts_newModel.FK_WorkoutElements_Workouts" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SmartWorkouts_newModel.Contracts" Width="1.5" PointX="8.25" PointY="8.25" />
+        <AssociationConnector Association="SmartWorkouts_newModel.FK_Contracts_Premium_Works" />
+        <AssociationConnector Association="SmartWorkouts_newModel.FK_Contracts_Users" />
+        <EntityTypeShape EntityType="SmartWorkouts_newModel.BuildID" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

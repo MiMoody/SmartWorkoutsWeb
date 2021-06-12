@@ -1,45 +1,84 @@
 ﻿@model IEnumerable<SmartWorkoutsWeb.Models.Premium_Works>
 
-@{
-    ViewBag.Title = "Index";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SmartWorkouts</title>
+    @Styles.Render("~/Content/PremiumWorks.css")
+</head>
+<body>
 
-<h2>Index</h2>
+    <div class="container-fluid MainContainer ">
+        @if (Session["Menu"] == null)
+        {
+            Session["Menu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+        }
+        @Session["Menu"]
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name_Premium_Work)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description_Premium_Work)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price_Premium_Work)
-        </th>
-        <th></th>
-    </tr>
+        <div class="container BlockSubscription mt-5">
+            @if (Model != null)
+            {
+                <h2 class="text-center mb-5" style="color:white;">Наши подписки </h2>
+                <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-lg-3 d-flex justify-content-center">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name_Premium_Work)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description_Premium_Work)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price_Premium_Work)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Number_Premium_Work }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Number_Premium_Work }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Number_Premium_Work })
-        </td>
-    </tr>
-}
 
-</table>
+                    @foreach (var item in Model)
+                    {
+
+                        if (ViewBag.IDBuySubscription == item.Number_Premium_Work)
+                        {
+                            <div class="col mb-5 ">
+                                <div class="card mx-auto ForCard">
+                                    <img src="~/Content/Images/PremiumWorks/@Html.DisplayFor(modelItem => item.PicturePath)" class="card-img-top img-fluid imgCard" alt="...">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name_Premium_Work)</h5>
+                                        <p class="card-text text-center overflow-hidden ">@Html.DisplayFor(modelItem => item.Description_Premium_Work)</p>
+                                        <span class="ForPrice"> @Html.DisplayFor(modelItem => item.Price_Premium_Work) руб.</span>
+                                        <a class="btn btn-outline-primary disabled">Приобретено</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col mb-5  ">
+                                <div class="card mx-auto ForCard">
+                                    <img src="~/Content/Images/PremiumWorks/@Html.DisplayFor(modelItem => item.PicturePath)" class="card-img-top img-fluid imgCard" alt="...">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name_Premium_Work)</h5>
+                                        <p class="card-text text-center overflow-hidden ">@Html.DisplayFor(modelItem => item.Description_Premium_Work)</p>
+                                        <span class="ForPrice"> @Html.DisplayFor(modelItem => item.Price_Premium_Work) руб.</span>
+                                        @{
+                                            if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a id="@Html.DisplayFor(modelItem => item.Number_Premium_Work)" class="btn btn-primary" onclick="BuySubscription(this)">Купить подписку</a>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+                    }
+                </div>
+
+            }
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
+
+    <script type="text/javascript" src="~/Scripts/BuyPremiumWork.js"></script>
+    <script src='https://oplata.qiwi.com/popup/v1.js'></script>
+    @Scripts.Render("https://kit.fontawesome.com/b781c44b15.js")
+
+
+</body>
+</html>

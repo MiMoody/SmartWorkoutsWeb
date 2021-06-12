@@ -19,6 +19,7 @@ namespace SmartWorkoutsWeb.Models
         {
             this.FavouritePosts = new HashSet<FavouritePosts>();
             this.User_Progress = new HashSet<User_Progress>();
+            this.Contracts = new HashSet<Contracts>();
         }
     
         public int ID_User { get; set; }
@@ -37,5 +38,7 @@ namespace SmartWorkoutsWeb.Models
         public virtual Premium_Works Premium_Works { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Progress> User_Progress { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contracts> Contracts { get; set; }
     }
 }

@@ -6,6 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Qiwi.BillPayments.Client;
+using Qiwi.BillPayments.Model;
+using Qiwi.BillPayments.Model.In;
+using Qiwi.BillPayments.Model.Out;
 using SmartWorkoutsWeb.Models;
 
 namespace SmartWorkoutsWeb.Controllers
@@ -17,7 +21,69 @@ namespace SmartWorkoutsWeb.Controllers
         // GET: Premium_Works
         public ActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated) ViewBag.IDBuySubscription = 0;
+            else {
+
+                int userId = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+                ValidateSubscription.CheckBuy(userId);
+                ValidateSubscription.CheckTime(userId);
+                ViewBag.IDBuySubscription = Convert.ToInt32(db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().PremiumNumber);
+            }
+
             return View(db.Premium_Works.ToList());
+        }
+        
+        public ActionResult BuySubscription(string id)
+        {
+            string IdBuild = Guid.NewGuid().ToString();
+            BillPaymentsClient client = BillPaymentsClientFactory.Create( secretKey: "48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPpZQHyQ5YrT3phbZG6TNwPP2U7m5gKjuh6VnZHi2m3BJikoJLV4B2ApEazrH7h6XK1YmK9NZj5ZTRBq3faLpArjKkKtbuVSMXJbURipA7i");
+            var SuccessUrl = new Uri("https://www.google.ru");
+
+            var URL = client.CreatePaymentForm(
+                  paymentInfo: new PaymentInfo
+                  {
+                      PublicKey = "48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPpZQHyQ5YrT3phbZG6TNwPP2U7m5gKjuh6VnZHi2m3BJikoJLV4B2ApEazrH7h6XK1YmK9NZj5ZTRBq3faLpArjKkKtbuVSMXJbURipA7i",
+                      Amount = new MoneyAmount
+                      {
+                          ValueDecimal = 1.0m,
+                          CurrencyEnum = CurrencyEnum.Rub
+                      },
+                      BillId = IdBuild,
+                      SuccessUrl = SuccessUrl
+                  },
+                  customFields: new CustomFields
+                  {
+                      ThemeCode = "Artem-Shfh2vS73eA"
+                  }
+              );
+            int NumberPremWork = Convert.ToInt32(id);
+            int idUser = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+            Users users = db.Users.Where(p => p.ID_User == idUser).FirstOrDefault();
+            users.PremiumNumber = NumberPremWork;
+            db.SaveChanges();
+            var price = db.Premium_Works.Where(p => p.Number_Premium_Work == NumberPremWork).FirstOrDefault().Price_Premium_Work;
+            Contracts contracts = new Contracts { IdUser = idUser, NumberPremiumWork = NumberPremWork, PurchaseDate = DateTime.Now, ExpiryDate = DateTime.Now.AddDays(30), Price = price };
+            db.Contracts.Add(contracts);
+            db.SaveChanges();
+            //var URL = client.CreateBill(
+            //   info: new CreateBillInfo
+            //   {
+            //       BillId = IdBuild,
+            //       Amount = new MoneyAmount
+            //       {
+            //           ValueDecimal = 199.9m,
+            //           CurrencyEnum = CurrencyEnum.Rub
+            //       },
+            //       Comment = "comment",
+            //       ExpirationDateTime = DateTime.Now.AddDays(45)
+            //   }
+            //   );
+            //int IdUser = db.Users.Where(p => p.Login == User.Identity.Name).FirstOrDefault().ID_User;
+            //BuildID build = new BuildID { IdUser = IdUser, IDBuild = IdBuild, NumberPremWork = NumberPremWork };
+            //db.BuildID.Add(build);
+            //db.SaveChanges();  
+            var StringURL = URL.OriginalString;
+            return Json(new { ask= StringURL });
         }
 
         // GET: Premium_Works/Details/5
