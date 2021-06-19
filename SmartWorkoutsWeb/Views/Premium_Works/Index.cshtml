@@ -27,17 +27,18 @@
 
 
                     @foreach (var item in Model)
-                    {
+                                {
+                                    string price = item.Price_Premium_Work.ToString().Remove(item.Price_Premium_Work.ToString().Length - 3, 3);
 
-                        if (ViewBag.IDBuySubscription == item.Number_Premium_Work)
-                        {
+                                    if (ViewBag.IDBuySubscription == item.Number_Premium_Work)
+                                    {
                             <div class="col mb-5 ">
                                 <div class="card mx-auto ForCard">
                                     <img src="~/Content/Images/PremiumWorks/@Html.DisplayFor(modelItem => item.PicturePath)" class="card-img-top img-fluid imgCard" alt="...">
                                     <div class="card-body text-center">
                                         <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name_Premium_Work)</h5>
                                         <p class="card-text text-center overflow-hidden ">@Html.DisplayFor(modelItem => item.Description_Premium_Work)</p>
-                                        <span class="ForPrice"> @Html.DisplayFor(modelItem => item.Price_Premium_Work) руб.</span>
+                                        <span class="ForPrice"> @price руб.</span>
                                         <a class="btn btn-outline-primary disabled">Приобретено</a>
                                     </div>
                                 </div>
@@ -51,7 +52,7 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name_Premium_Work)</h5>
                                         <p class="card-text text-center overflow-hidden ">@Html.DisplayFor(modelItem => item.Description_Premium_Work)</p>
-                                        <span class="ForPrice"> @Html.DisplayFor(modelItem => item.Price_Premium_Work) руб.</span>
+                                        <span class="ForPrice">  @price руб.</span>
                                         @{
                                             if (User.Identity.IsAuthenticated)
                                             {

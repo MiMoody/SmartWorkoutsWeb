@@ -5,15 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище SmartWorkouts_newModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BuildID">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDBuild" Type="varchar(max)" Nullable="false" />
-          <Property Name="NumberPremWork" Type="int" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Contracts">
           <Key>
             <PropertyRef Name="IdContract" />
@@ -281,7 +272,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище SmartWorkouts_newModelContainer">
-          <EntitySet Name="BuildID" EntityType="Self.BuildID" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exercises" EntityType="Self.Exercises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FavouritePosts" EntityType="Self.FavouritePosts" Schema="dbo" store:Type="Tables" />
@@ -659,7 +649,6 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Contracts" EntitySet="Contracts" />
           </AssociationSet>
-          <EntitySet Name="BuildID" EntityType="SmartWorkouts_newModel.BuildID" />
         </EntityContainer>
         <EntityType Name="Contracts">
           <Key>
@@ -698,15 +687,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="BuildID">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDBuild" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NumberPremWork" Type="Int32" Nullable="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -833,16 +813,6 @@
                 <ScalarProperty Name="NumberPremiumWork" ColumnName="NumberPremiumWork" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="IdContract" ColumnName="IdContract" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BuildID">
-            <EntityTypeMapping TypeName="SmartWorkouts_newModel.BuildID">
-              <MappingFragment StoreEntitySet="BuildID">
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="NumberPremWork" ColumnName="NumberPremWork" />
-                <ScalarProperty Name="IDBuild" ColumnName="IDBuild" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

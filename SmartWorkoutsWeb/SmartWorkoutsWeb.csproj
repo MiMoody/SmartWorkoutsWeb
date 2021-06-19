@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.0.32\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -151,9 +154,6 @@
       <DependentUpon>Global.asax</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Models\BuildID.cs">
-      <DependentUpon>SmartWorkouts.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Contracts.cs">
       <DependentUpon>SmartWorkouts.tt</DependentUpon>
     </Compile>
@@ -240,8 +240,6 @@
     <Content Include="Content\Images\ForSliderTypeWorkouts\спина.jpg" />
     <Content Include="Content\Images\Harper _ Nike _ Neon Studio3.png" />
     <Content Include="Content\Images\IconApp.png" />
-    <Content Include="Content\Images\PremiumWorks\1.jpg" />
-    <Content Include="Content\Images\PremiumWorks\2.jpg" />
     <Content Include="Content\Images\dumbbell.svg" />
     <Content Include="Content\Images\logo.svg" />
     <Content Include="Content\Images\biceps.svg" />
@@ -330,6 +328,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\ExerciseGifs\" />
     <Folder Include="Content\Images\PostImages\" />
+    <Folder Include="Content\Images\PremiumWorks\" />
     <Folder Include="Content\Images\WorkoutImages\" />
   </ItemGroup>
   <ItemGroup>
